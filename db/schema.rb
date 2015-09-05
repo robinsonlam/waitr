@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904052820) do
+ActiveRecord::Schema.define(version: 20150905060317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
+    t.text  "name"
+    t.float "price"
+    t.text  "image"
+  end
+
+  create_table "items_users", id: false, force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "user_id"
+  end
 
   create_table "menu_items", force: :cascade do |t|
     t.text  "name"
@@ -23,11 +34,12 @@ ActiveRecord::Schema.define(version: 20150904052820) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.text "email"
-    t.text "first_name"
-    t.text "last_name"
-    t.text "image"
-    t.text "password_digest"
+    t.text    "email"
+    t.text    "first_name"
+    t.text    "last_name"
+    t.text    "image"
+    t.text    "password_digest"
+    t.boolean "admin",           default: false
   end
 
 end
