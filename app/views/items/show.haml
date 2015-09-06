@@ -1,8 +1,7 @@
 %h1= @item.name
-= image_tag(@item.image)
+= image_tag(@item.image, :class => "menu_icon")
 %p= "$#{@item.price}"
 
 <!-- Add to Order -->
 
 = link_to("Back to the Menu", items_path)
-

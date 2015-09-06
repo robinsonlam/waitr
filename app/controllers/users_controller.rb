@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :check_if_logged_in, :only => [:index, :edit, :update]
+  before_action :check_if_admin, :only => [:index]
+
   def index
   	@users = User.all
   end
@@ -27,5 +30,13 @@ class UsersController < ApplicationController
   private
   def user_params
   	params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
+  end
+
+  def check_if_logged_in
+    redirect_to root_path unless @current_user.present?
+  end
+
+  def check_if_admin
+    redirect_to root_path unless @current_user.present? && @current_user.admin?
   end
 end

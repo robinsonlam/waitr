@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 	
 	has_and_belongs_to_many :items
+	has_many :orders
 
 	validates :email, :presence => true, :uniqueness => true
   validates :first_name, :presence => true, :uniqueness => true, :length => { :minimum => 3 }
