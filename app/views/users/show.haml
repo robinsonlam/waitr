@@ -1,6 +1,11 @@
-<h1>User Profile Page</h1>
+%h1 User Profile Page
 
-%p= "Name: #{ @current_user.first_name } #{ @current_user.last_name }"
-%p= "Email: #{ @current_user.email }"
+%p= "Name: #{ @user.first_name } #{ @user.last_name }"
+%p= "Email: #{ @user.email }"
+
+%h2 Your Orders
+%div{:class => "order-list"}
+	- @user.orders.each do |order|
+		%li= link_to("Order ##{ order.id } Progress: #{ order.progress }", order_path(order))
  
 

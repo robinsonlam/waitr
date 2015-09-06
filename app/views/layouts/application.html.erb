@@ -10,7 +10,11 @@
 
 
 <% if @current_user.present? %>
-	<%= link_to "Edit Profile", edit_user_path %>
+	<!-- Link to YOUR ORDERS -->
+	<% if @current_user.admin? %>
+		<%= link_to "Orders", orders_path %>
+	<% end %>
+	<%= link_to "Your Profile", user_path(@current_user) %>
 	<%= link_to "Log Out", logout_path, :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?' } %>
 <% else %>
 	<%= link_to "Log In", login_path %>

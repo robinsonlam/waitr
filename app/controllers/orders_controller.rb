@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+  	@order = Order.find_by :id => params[:id]
   end
 
   def edit

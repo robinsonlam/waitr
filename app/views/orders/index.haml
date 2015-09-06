@@ -1,6 +1,9 @@
-%h1 List of all the damn orders
+%h1 List of all the damn orders (for shop)
 
 - @orders.each do |order|
 	%h3= "Order #{ order.id }"
 	- order.items.each do |item|
 		%li= link_to("#{ item.name }: $#{ item.price }", item_path(item.id))
+		<!-- Remove Item Linkto path-->
+
+

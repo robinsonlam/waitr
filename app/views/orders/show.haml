@@ -1,0 +1,9 @@
+%h1= "Order ##{ @order.id }"
+%h2= "Progress: #{ @order.progress }"
+
+%h3 Items ordered: 
+
+- @order.items.each do |item|
+	%li= link_to("#{ item.name }: $#{ item.price }", item_path(item.id), :target => "_blank")
+
+= link_to("Return to profile", user_path(@current_user))
