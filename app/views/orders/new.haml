@@ -1,0 +1,8 @@
+%h1 this is the new order page
+
+
+= form_for @order do |f|
+	- @items.each do |item|
+		= f.label "item_ids", "#{ item.name }: $#{ item.price }"
+		= check_box_tag "order[item_ids][]", item.id
+	= f.submit "Place Order"
