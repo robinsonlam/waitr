@@ -1,0 +1,8 @@
+%h1= @item.name
+= image_tag(@item.image)
+%p= "$#{@item.price}"
+
+<!-- Add to Order -->
+
+= link_to("Back to the Menu", items_path)
+

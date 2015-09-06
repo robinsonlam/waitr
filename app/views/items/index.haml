@@ -1,0 +1,4 @@
+%h1 List of all the damn menu items (Menu Page)
+
+- @items.each do |item|
+	%li= link_to("#{ item.name }: $#{ item.price }", item_path(item.id))

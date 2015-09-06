@@ -1,0 +1,4 @@
+%h1 Waitr
+
+- if @current_user.present?
+	%p= "Welcome back #{ @current_user.first_name }"
