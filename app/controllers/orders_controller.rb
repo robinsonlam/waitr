@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
-	# before_action :calculate_total, :except => [:index, :new]
+	before_action :calculate_total, :only => [:show]
+  before_action :check_if_logged_in, :only => [:show]
+  before_action :check_if_owner, :only => [:show]
+  before_action :check_if_admin, :only => [:index]
   
   def index
   	@orders = Order.all
@@ -30,5 +33,10 @@ class OrdersController < ApplicationController
   		total += item.price
   	end
   	order.update :total => total
+  end
+
+  def check_if_owner
+    order = Order.find_by :id => params[:id]
+    redirect_to root_path unless @current_user.id == order.user_id
   end
 end

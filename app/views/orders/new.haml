@@ -1,8 +1,12 @@
-%h1 this is the new order page
+%div{ :class => 'order-container' }
+	%h1 Place a new order
 
 
-= form_for @order do |f|
-	- @items.each do |item|
-		= f.label "item_ids", "#{ item.name }: $#{ item.price }"
-		= check_box_tag "order[item_ids][]", item.id
-	= f.submit "Place Order"
+	= form_for @order do |f|
+		- @items.each do |item|
+			= f.label("item_ids_#{item.id}") do
+				%div{ :class => 'menu-item' }
+					= "#{ item.name }: #{ number_to_currency item.price }"
+					= check_box_tag "order[item_ids][]", item.id, false, :id => "order_item_ids_#{item.id}"
+		= f.submit "Place Order"
+

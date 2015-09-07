@@ -1,6 +1,6 @@
 %h1= @item.name
 = image_tag(@item.image, :class => "menu_icon")
-%p= "$#{@item.price}"
+%p= "#{ number_to_currency @item.price }"
 
 <!-- Add to Order -->
 

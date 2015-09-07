@@ -1,0 +1,68 @@
+body {
+	font-family: "Proxima Nova", "Helvetica Neue", sans-serif;
+}
+
+.container {
+	width: 960px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #888;
+	transition: color 0.2s ease-in-out;
+
+	&:visited {
+		color: #888;
+	}
+
+	&.danger {
+		&:hover, &:focus {
+			color: $waitr-red;
+		}
+	}
+
+	&:hover, &:focus {
+		color: $waitr-green;
+	}
+
+	&.pill {
+		border-radius: $general-border-radius;
+		padding: 10px 20px;
+		color: $waitr-green;
+		min-width: 100px;
+
+		background: white;
+		border: 1px solid $waitr-green;
+		transition: all 0.3s ease-in-out;
+
+		&:visited {
+			color: $waitr-green;
+		}
+
+		&:hover, &:focus {
+			background: $waitr-green;
+			color: white;
+		}
+
+		&.primary {
+			background: $waitr-green;
+			color: white;
+
+			&:hover, &:focus {
+			background: $waitr-red;
+			border: 1px solid $waitr-red;
+		}
+		}
+	}
+}
+
+.global-nav {
+	text-align: right;
+	padding: 20px 0;
+	a {
+		margin-left: 20px;
+		padding: 10px;
+	}
+}

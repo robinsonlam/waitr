@@ -1,0 +1,26 @@
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.order-container {
+	.new_order {
+		.menu-item {
+			padding: $general-padding;
+			border-radius: $general-border-radius;
+			margin: 10px 0;
+			cursor: pointer;
+			position: relative;
+
+			color: $waitr-green;
+			background: white;
+			border: 1px solid $waitr-green;
+			transition: all 0.1s ease-in-out;
+
+			&:hover, &:focus {
+				background: $waitr-green;
+				color: white;
+			}
+
+		}
+	}
+}

@@ -4,6 +4,8 @@
 %h3 Items ordered: 
 
 - @order.items.each do |item|
-	%li= link_to("#{ item.name }: $#{ item.price }", item_path(item.id), :target => "_blank")
+	%li= link_to("#{ item.name }: #{ number_to_currency item.price }", item_path(item.id), :target => "_blank")
+
+%p= "Total Cost: #{ number_to_currency @order.total }"
 
 = link_to("Return to profile", user_path(@current_user))

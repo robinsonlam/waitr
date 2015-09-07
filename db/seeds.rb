@@ -6,10 +6,13 @@ u1 = User.create( :email => 'rob@robinsonlam.com', :first_name => 'Robinson', :l
 
 item1 = Item.create( :name => 'Chicken Schnitzel', :price => 15.95 )
 item2 = Item.create( :name => 'Ravioli', :price => 12.95 )
+item3 = Item.create( :name => 'Tonkotsu Ramen', :price => 13.95)
+item4 = Item.create( :name => 'Soba Noodles', :price => 11.95)
+item5 = Item.create( :name => 'Roast Duck with Rice', :price => 21.95)
 
-u1.items << item1 << item2
-
-order1 = Order.create( :total => 0 )
-order1.items << item1 << item2
+order1 = Order.create
+order2 = Order.create
+order1.items << item1 << item2 << item4
+order2.items << item3 << item5 << item1
 
 u1.orders << order1

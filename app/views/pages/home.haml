@@ -1,5 +1,10 @@
-%h1 Waitr
+%div{ :class => 'home-container' }
+	%h1{ :class => 'jumbo-heading' } Waitr
 
-- if @current_user.present?
-	%p= "Welcome back #{ @current_user.first_name }"
-	= link_to("Start your order", new_order_path)
+	- if @current_user.present?
+		%p= "Welcome back #{ @current_user.first_name }!"
+		= link_to("Start your order", new_order_path, :class => 'pill')
+	- else
+		%p= "Table service is only a touch away!"
+		= link_to("Signup", new_user_path, :class => 'pill')
+		= link_to("Log in", login_path, :class => 'pill primary')

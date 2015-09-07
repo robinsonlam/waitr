@@ -3,7 +3,7 @@
 - @orders.each do |order|
 	%h3= "Order #{ order.id }"
 	- order.items.each do |item|
-		%li= link_to("#{ item.name }: $#{ item.price }", item_path(item.id))
+		%li= link_to("#{ item.name }: #{ number_to_currency item.price }", item_path(item.id))
 		<!-- Remove Item Linkto path-->
 
 
