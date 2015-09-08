@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :check_if_owner, :only => [:show]
   before_action :check_if_admin, :only => [:index]
   def index
-  	@orders = Order.all
+  	@orders = Order.order :progress
   end
 
   def new
@@ -56,16 +56,5 @@ class OrdersController < ApplicationController
   def check_if_owner
     order = Order.find_by :id => params[:id]
     redirect_to root_path unless @current_user.id == order.user_id
-  end
-
-  def class_for_progress(order)
-    case order.progress
-      when 'processing'
-        'processing'
-      when 'complete'
-        'complete'
-      when 'cooking'
-        'cooking'
-    end
   end
 end

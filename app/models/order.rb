@@ -11,15 +11,15 @@
 class Order < ActiveRecord::Base
 	has_and_belongs_to_many :items
 	belongs_to :user
-	enum progress: { processing: 1, cooking: 2, complete: 3 }
+	enum progress: { :Processing => 1, :Cooking => 2, :Complete => 3 }
 
 	def class_for_progress(order)
 		case order.progress
-			when 'processing'
+			when 'Processing'
 			  'processing'
-			when 'complete'
+			when 'Complete'
 			  'complete'
-			when 'cooking'
+			when 'Cooking'
 			  'cooking'
 		end
 	end
