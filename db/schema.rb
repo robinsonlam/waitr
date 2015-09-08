@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20150906044153) do
     t.text  "image"
   end
 
-  create_table "items_orders", force: :cascade do |t|
+  create_table "items_orders", id: false, force: :cascade do |t|
     t.integer "item_id"
     t.integer "order_id"
   end
@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 20150906044153) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
     t.float   "total"
-    t.text    "progress", default: "Processing"
+    t.integer "user_id"
+    t.integer "progress", default: 1
   end
 
   create_table "users", force: :cascade do |t|

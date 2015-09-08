@@ -15,4 +15,4 @@ order2 = Order.create
 order1.items << item1 << item2 << item4
 order2.items << item3 << item5 << item1
 
-u1.orders << order1
+u1.orders << order1 << order2

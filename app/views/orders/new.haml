@@ -1,12 +1,22 @@
+/ %div{ :class => 'order-container' }
+/ 	%h1 Place a new order
+
+
+/ 	= form_for @order do |f|
+/ 		- @items.each do |item|
+/ 			= f.label("item_ids_#{item.id}", { :class => 'menu-item' }) do
+/ 				= "#{ item.name }: #{ number_to_currency item.price }"
+/ 				= check_box_tag "order[item_ids][]", item.id, false, :id => "order_item_ids_#{item.id}"
+/ 		= f.submit "Place Order"
+
+
 %div{ :class => 'order-container' }
 	%h1 Place a new order
 
 
 	= form_for @order do |f|
 		- @items.each do |item|
-			= f.label("item_ids_#{item.id}") do
-				%div{ :class => 'menu-item' }
-					= "#{ item.name }: #{ number_to_currency item.price }"
-					= check_box_tag "order[item_ids][]", item.id, false, :id => "order_item_ids_#{item.id}"
-		= f.submit "Place Order"
-
+			= check_box_tag "order[item_ids][]", item.id, false, :id => "order_item_ids_#{item.id}"
+			= f.label("item_ids_#{item.id}", { :class => 'menu-item' }) do
+				= "#{ item.name }: #{ number_to_currency item.price }"
+		= f.submit "Place Order", { :data => { :confirm => "Are you sure you want to place this order?" }}

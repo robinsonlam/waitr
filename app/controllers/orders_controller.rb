@@ -1,9 +1,8 @@
 class OrdersController < ApplicationController
-	before_action :calculate_total, :only => [:show]
+	before_action :calculate_total, :only => [:show, :update]
   before_action :check_if_logged_in, :only => [:show]
   before_action :check_if_owner, :only => [:show]
   before_action :check_if_admin, :only => [:index]
-  
   def index
   	@orders = Order.all
   end
@@ -15,14 +14,33 @@ class OrdersController < ApplicationController
 
   def create
   	order = Order.create(:user_id => @current_user.id, :item_ids => params[:order][:item_ids])
-  	redirect_to order_path(order)
+    
+    total = 0
+    order.items.each do |item|
+      total += item.price
+    end
+    order.update :total => total
+
+    redirect_to order_path(order)
   end
 
   def show
   	@order = Order.find_by :id => params[:id]
   end
 
+  def update
+    order = Order.find_by :id => params[:id]
+    order.update(:progress => params[:order][:progress])
+    redirect_to orders_path
+  end
+
   def edit
+  end
+
+  def destroy
+    order = Order.find_by :id => params[:id]
+    order.destroy
+    redirect_to orders_path
   end
 
   private
@@ -38,5 +56,16 @@ class OrdersController < ApplicationController
   def check_if_owner
     order = Order.find_by :id => params[:id]
     redirect_to root_path unless @current_user.id == order.user_id
+  end
+
+  def class_for_progress(order)
+    case order.progress
+      when 'processing'
+        'processing'
+      when 'complete'
+        'complete'
+      when 'cooking'
+        'cooking'
+    end
   end
 end

@@ -5,7 +5,7 @@ body {
 .container {
 	width: 960px;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0;
 }
 
 a {
@@ -51,9 +51,33 @@ a {
 			color: white;
 
 			&:hover, &:focus {
-			background: $waitr-red;
-			border: 1px solid $waitr-red;
+				background: $waitr-red;
+				border: 1px solid $waitr-red;
+			}
 		}
+	}
+}
+
+input[type='submit'] {
+		padding: 10px 20px;
+		min-width: 100px;
+		border-radius: $general-border-radius;
+		transition: all 0.3s ease-in-out;
+		color: $waitr-green;
+		background: white;
+		border: 1px solid $waitr-green;
+		&:hover, &:focus {
+			background: $waitr-green;
+			color: white;
+		}
+
+	&.danger {
+		color: $waitr-red;
+		background: white;
+		border: 1px solid $waitr-red;
+		&:hover, &:focus {
+				background: $waitr-red;
+				color: white;
 		}
 	}
 }

@@ -10,17 +10,85 @@
 			margin: 10px 0;
 			cursor: pointer;
 			position: relative;
+			display: block;
 
-			color: $waitr-green;
+			color: $color-gray;
 			background: white;
-			border: 1px solid $waitr-green;
-			transition: all 0.1s ease-in-out;
+			border: 1px solid $color-gray;
+			transition: border 0.1s ease-in;
 
 			&:hover, &:focus {
-				background: $waitr-green;
-				color: white;
+				border-left: 20px solid $color-gray;
 			}
 
+		}
+
+		input[type='checkbox'] {
+			display: none;
+
+			&:checked + .menu-item {
+				color: $waitr-green;
+				background: white;
+				border: 1px solid $waitr-green;
+				border-left: 20px solid $waitr-green;
+
+				&:hover, &:focus {
+					border-left: 20px solid $waitr-green;
+				}
+			}
+		}
+	}
+}
+
+.order-card {
+	// background: #eee;
+	border: 1px solid $color-gray;
+	padding: 0;
+	padding-top: $general-padding;
+	margin: $general-padding 0;
+	display: block;
+	border-radius: $large-border-radius;
+
+	.order-header {
+		padding: $half-padding $general-padding;
+
+		&.processing {
+			background-color: $color-gray;
+		}
+		&.complete {
+			background-color: $waitr-green;
+		}
+		&.cooking {
+			background-color: $waitr-red;
+		}
+
+		h2 {
+			margin: 0;
+			display: inline-block;
+			color: white;
+			a {
+				color: white;
+			}
+			&.progress {
+				float: right;
+				text-align: right;
+			}
+		}
+	}
+
+	.order-body {
+		padding: $half-padding $general-padding;
+		position: relative;
+
+		.edit_order, .button_to {
+			display: inline-block;
+		}
+
+		.card-actions {
+			position: absolute;
+			right: $general-padding;
+			bottom: $large-padding;
+			text-align: right;
 		}
 	}
 }
