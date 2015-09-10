@@ -1,7 +1,6 @@
 %h1= @item.name
 = image_tag(@item.image, :class => "menu_icon")
-%p= "#{ number_to_currency @item.price }"
+%p= "Price: #{ number_to_currency @item.price }"
 
-<!-- Add to Order -->
-
+= link_to "Delete", item_path(@item), :method => 'delete', :class => 'pill danger', :data => { :confirm => "Are you sure you want to delete #{ @item.name }?"}
 = link_to("Back to the Menu", items_path)

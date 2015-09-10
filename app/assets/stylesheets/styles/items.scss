@@ -1,3 +1,44 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.add-item {
+	margin: $half-padding;
+}
+
+.menu-list {
+	padding: 0;
+	text-align: center;
+	ul {
+		padding: 0;
+		.menu-item {
+			vertical-align: top;
+			border-radius: $general-border-radius;
+			height: 250px;
+			width: 200px;
+			padding: $general-padding;
+			margin: $half-padding;
+			list-style: none;
+			display: inline-block;
+			text-align: center;
+			position: relative;
+			border: 1px solid $color-gray;
+
+			h3 {
+				margin: 0;
+				text-transform: uppercase;
+			}
+
+			.edit-item, .delete-item {
+				bottom: $half-padding;
+				position:absolute;
+			  left: 0;
+			  right: 0;
+			  margin: 0 $half-padding;
+			}
+
+			.edit-item {
+				bottom: 60px;
+			}
+		}
+	}
+}

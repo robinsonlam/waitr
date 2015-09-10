@@ -1,4 +1,4 @@
-%h1 User Registration Page
+%h1 Sign Up
 
 - if @user.errors.any?
 	%ol
@@ -7,18 +7,18 @@
 
 = form_for @user do |f|
 	%p
-		= f.label :email
-		= f.email_field :email, :required => true
+		= f.label :email, 'Email:'
+		= f.email_field :email, :required => true, :placeholder => 'Email'
 	%p
-		= f.label :first_name
-		= f.text_field :first_name, :required => true
+		= f.label :first_name, 'First Name:'
+		= f.text_field :first_name, :required => true, :placeholder => 'First Name'
 	%p
-		= f.label :last_name
-		= f.text_field :last_name
+		= f.label :last_name, 'Last Name:'
+		= f.text_field :last_name, :placeholder => 'Last Name'
 	%p
-		= f.label :password
-		= f.password_field :password, :required => true
+		= f.label :password, 'Password:'
+		= f.password_field :password, :required => true, :placeholder => 'Password'
 	%p
-		= f.label :password_confirmation
-		= f.password_field :password_confirmation, :required => true
+		= f.label :password_confirmation, 'Confirm Password:'
+		= f.password_field :password_confirmation, :required => true, :placeholder => 'Confirm Password'
 	= f.submit

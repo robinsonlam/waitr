@@ -3,9 +3,9 @@
 # Table name: orders
 #
 #  id       :integer          not null, primary key
-#  user_id  :integer
 #  total    :float
-#  progress :text             default("Processing")
+#  user_id  :integer
+#  progress :integer          default(1)
 #
 
 class Order < ActiveRecord::Base

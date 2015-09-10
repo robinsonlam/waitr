@@ -6,7 +6,7 @@
 #  email           :text
 #  first_name      :text
 #  last_name       :text
-#  image           :text
+#  image           :text             default("http://www.gravatar.com/avatar/?d=mm")
 #  password_digest :text
 #  admin           :boolean          default(FALSE)
 #

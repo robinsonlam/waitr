@@ -5,6 +5,14 @@ class OrdersController < ApplicationController
   before_action :check_if_admin, :only => [:index]
   def index
   	@orders = Order.order :progress
+
+    @orders.each do |order|
+      total = 0
+      order.items.each do |item|
+        total += item.price
+      end
+      order.update :total => total
+    end
   end
 
   def new

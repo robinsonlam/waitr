@@ -1,3 +1,86 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new_user, .login-page {
+	p {
+		margin: $large-padding 0;
+		label {
+			font-weight: 800;
+			display: block;
+		}
+
+		input[type='text'], input[type='password'], input[type='email'] {
+			margin-top: $half-padding;
+			border: none;
+			border-bottom: 1px solid $color-gray;
+			width: 200px;
+			padding: $half-padding;
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}
+
+.user-profile {
+	text-align: center;
+	.profile-card {
+		box-shadow: 0 2px 2px rgba(0, 0, 5, 0.3);
+
+		.profile-header {
+			background-color: $waitr-green;
+			padding: $general-padding;
+			color: white;
+			h2 {
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		.profile-body {
+			padding: $large-padding;
+			.user-profile-image {
+				border-radius: 100%;
+				width: 240px;
+			}
+
+			.order-list {
+				list-style: none;
+				padding: 0;
+				li {
+					margin: $general-padding 0;
+
+					.user-orders {
+						color: white;
+						padding: $general-padding;
+						display: block;
+
+						&.processing {
+							background-color: $color-gray;
+							transition: background-color 0.3s ease-in-out;
+							&:hover {
+								background-color: darken($color-gray, 10%);
+							}
+						}
+						&.complete {
+							background-color: $waitr-green;
+							transition: background-color 0.3s ease-in-out;
+							&:hover {
+								background-color: darken($waitr-green, 10%);
+							}
+						}
+						&.cooking {
+							background-color: $waitr-red;
+							transition: background-color 0.3s ease-in-out;
+							&:hover {
+								background-color: darken($waitr-red, 10%);
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+}

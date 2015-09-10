@@ -3,14 +3,14 @@ body {
 }
 
 .container {
-	width: 960px;
+	width: 800px;
 	margin: 0 auto;
 	padding: 0;
 }
 
 a {
 	text-decoration: none;
-	color: #888;
+	color: $color-gray;
 	transition: color 0.2s ease-in-out;
 
 	&:visited {
@@ -46,30 +46,44 @@ a {
 			color: white;
 		}
 
-		&.primary {
-			background: $waitr-green;
-			color: white;
+		&.danger {
+			background: white;
+			border: 1px solid $waitr-red;
+			color: $waitr-red;
 
 			&:hover, &:focus {
 				background: $waitr-red;
-				border: 1px solid $waitr-red;
+				color: white;
+			}
+		}
+
+		&.neutral {
+			background: white;
+			border: 1px solid $color-gray;
+			color: $color-gray;
+
+			&:hover, &:focus {
+				background: $color-gray;
+				color: white;
 			}
 		}
 	}
 }
 
 input[type='submit'] {
-		padding: 10px 20px;
-		min-width: 100px;
-		border-radius: $general-border-radius;
-		transition: all 0.3s ease-in-out;
-		color: $waitr-green;
-		background: white;
-		border: 1px solid $waitr-green;
-		&:hover, &:focus {
-			background: $waitr-green;
-			color: white;
-		}
+	cursor: pointer;
+	font-size: 14px;
+	padding: 10px 20px;
+	min-width: 100px;
+	border-radius: $general-border-radius;
+	transition: all 0.3s ease-in-out;
+	color: $waitr-green;
+	background: white;
+	border: 1px solid $waitr-green;
+	&:hover, &:focus {
+		background: $waitr-green;
+		color: white;
+	}
 
 	&.danger {
 		color: $waitr-red;
@@ -90,3 +104,4 @@ input[type='submit'] {
 		padding: 10px;
 	}
 }
+
