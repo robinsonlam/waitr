@@ -31,7 +31,7 @@ a {
 		border-radius: $general-border-radius;
 		padding: 10px 20px;
 		color: $waitr-green;
-		min-width: 100px;
+		min-width: 150px;
 
 		background: white;
 		border: 1px solid $waitr-green;
@@ -74,7 +74,7 @@ input[type='submit'] {
 	cursor: pointer;
 	font-size: 14px;
 	padding: 10px 20px;
-	min-width: 100px;
+	min-width: 150px;
 	border-radius: $general-border-radius;
 	transition: all 0.3s ease-in-out;
 	color: $waitr-green;
@@ -102,6 +102,58 @@ input[type='submit'] {
 	a {
 		margin-left: 20px;
 		padding: 10px;
+	}
+}
+
+// CARDS
+
+.card {
+	box-shadow: 0 2px 2px rgba(0, 0, 5, 0.3);
+	padding: 0;
+	margin: $general-padding 0;
+	display: block;
+
+	.card-header {
+		padding: $half-padding $general-padding;
+		background-color: $waitr-green;
+
+		&.processing {
+			background-color: $color-gray;
+		}
+		&.complete {
+			background-color: $waitr-green;
+		}
+		&.cooking {
+			background-color: $waitr-red;
+		}
+
+		h2 {
+			margin: 0;
+			display: inline-block;
+			color: white;
+			a {
+				color: white;
+			}
+			&.progress {
+				float: right;
+				text-align: right;
+			}
+		}
+	}
+
+	.card-body {
+		padding: $half-padding $general-padding;
+		position: relative;
+
+		.card-actions {
+			position: absolute;
+			right: $general-padding;
+			bottom: $general-padding;
+			text-align: right;
+			input[type='submit'] {
+				margin-left: $half-padding;
+			}
+		}
 	}
 }
 

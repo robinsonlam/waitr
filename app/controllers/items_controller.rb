@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.create item_params
-    redirect_to item_path(item)
+    redirect_to items_path
   end
 
   def edit

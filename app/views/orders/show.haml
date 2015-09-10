@@ -8,7 +8,7 @@
 
 %p= "Total Cost: #{ number_to_currency @order.total }"
 
-= button_to("Delete Item", order_path(@order), :method => "delete", :data => { :confirm => "Are you sure you want to delete Order ##{ @order.id }"}, :class => 'danger')
+= button_to("Cancel/Delete Order", order_path(@order), :method => "delete", :data => { :confirm => "Are you sure you want to delete Order ##{ @order.id }"}, :class => 'danger order-delete')
 
 - if @current_user == @order.user
 	= link_to("Return to profile", user_path(@current_user), :class => 'pill')

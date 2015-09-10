@@ -92,3 +92,11 @@
 		}
 	}
 }
+
+.order-delete {
+	margin: $general-padding 0;
+	.pill {
+		text-align: center;
+		display: inline-block;
+	}
+}

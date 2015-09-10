@@ -1,11 +1,16 @@
 .menu-list
-	%h1 List of all the damn menu items (Menu Page)
-	= link_to "Add New Item", new_item_path, { :class => 'add-item pill neutral' }
+	%h1 Menu
+	- if @current_user.admin?
+		= link_to "Add New Item", new_item_path, { :class => 'add-item pill neutral' }
 
 	%ul
 		- @items.each do |item|
-			%li{ :class => 'menu-item' }
-				%h3= link_to("#{ item.name }", item_path(item))
-				%p=  "Price: #{ number_to_currency item.price }"
-				= link_to("Edit Item", edit_item_path(item), { :class => 'edit-item pill' })
-				= link_to("Delete Item", item, { :class => 'delete-item danger pill', :method => 'delete', :data => { :confirm => "Are you sure you want to delete #{ item.name }?"} })
+			%li{ :class => 'menu-item card' }
+				.card-header
+					%h2= "#{ item.name }"
+				.card-body
+					%p=  "Price: #{ number_to_currency item.price }"
+					- if @current_user.admin?
+						.card-actions
+							= link_to("Edit Item", edit_item_path(item), { :class => 'edit-item pill' })
+							= link_to("Delete Item", item, { :class => 'delete-item danger pill', :method => 'delete', :data => { :confirm => "Are you sure you want to delete #{ item.name }?"} })

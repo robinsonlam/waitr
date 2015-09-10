@@ -18,7 +18,7 @@
 			<% end %>
 			
 
-			<%= link_to "Menu Items", items_path %>
+			<%= link_to "Menu", items_path %>
 			<%= link_to "Your Profile", user_path(@current_user) %>
 			<%= link_to "Log Out", logout_path, :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?' }, :class => 'danger' %>
 		<% else %>

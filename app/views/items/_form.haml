@@ -1,11 +1,12 @@
 = form_for @item do |f|
-	= f.label :name
-	= f.text_field :name
-
-	= f.label :price
-	= f.text_field :price
-
-	= f.label :category
-	= f.select :category_id, Category.all.map { |category| [ category.name, category.id ] }, :include_blank => true
+	%p
+		= f.label :name
+		= f.text_field :name, :placeholder => "Name"
+	%p
+		= f.label :price
+		= f.text_field :price, :placeholder => "Price"
+	%p
+		= f.label :category
+		= f.select :category_id, Category.all.map { |category| [ category.name, category.id ] }, :include_blank => true
 
 	= f.submit

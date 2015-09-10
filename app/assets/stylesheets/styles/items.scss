@@ -8,36 +8,67 @@
 .menu-list {
 	padding: 0;
 	text-align: center;
+
 	ul {
 		padding: 0;
 		.menu-item {
 			vertical-align: top;
-			border-radius: $general-border-radius;
 			height: 250px;
-			width: 200px;
-			padding: $general-padding;
+			width: 220px;
 			margin: $half-padding;
 			list-style: none;
 			display: inline-block;
 			text-align: center;
 			position: relative;
-			border: 1px solid $color-gray;
-
-			h3 {
-				margin: 0;
-				text-transform: uppercase;
+			
+			.card-header {
+				height: 20px;
+				h2 {
+					margin: 0;
+					font-size: 14px;
+					text-transform: uppercase;
+				}
 			}
 
-			.edit-item, .delete-item {
-				bottom: $half-padding;
-				position:absolute;
-			  left: 0;
-			  right: 0;
-			  margin: 0 $half-padding;
-			}
+			.card-body {
+				position: absolute;
+				padding-bottom: 0;
+				bottom: 0; top: 60px;
+				left: 0; right: 0;
 
-			.edit-item {
-				bottom: 60px;
+				.card-actions {
+					left: 0; right: 0;
+					position: absolute;
+					bottom: 0;
+					.edit-item, .delete-item {
+						display: block;
+						text-align: center;	
+					  margin: $half-padding;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.edit_item, .new_item {
+	margin-bottom: $general-padding;
+	p {
+		margin: $large-padding 0;
+		label {
+			font-weight: 800;
+			display: block;
+		}
+
+		input[type='text'], input[type='password'], input[type='email'] {
+			margin-top: $half-padding;
+			border: none;
+			border-bottom: 1px solid $color-gray;
+			width: 200px;
+			padding: $half-padding;
+			&:focus {
+				outline: none;
 			}
 		}
 	}
